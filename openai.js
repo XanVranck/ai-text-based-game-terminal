@@ -18,7 +18,6 @@ const callOpenAI = async function(scenarios, choice) {
 
       const chatCompletion = await stream.finalChatCompletion();
       const json = chatCompletion.choices[0].message.content
-      console.log(json);
       return JSON.parse(json);
 }
 
