@@ -30,20 +30,20 @@ Step-by-step instructions on how to get the development environment running.
 4. OPENAI_APIKEY: This is used to authenticate requests made from the application.
 
     For macOS/Linux:
-```bash
-export OPENAI_APIKEY=<your_openai_api_key_here>
-```
+    ```bash
+    export OPENAI_APIKEY=<your_openai_api_key_here>
+    ```
 
-For Windows:
-```bash
-set OPENAI_APIKEY=<your_openai_api_key_here>
-```
+    For Windows:
+    ```bash
+    set OPENAI_APIKEY=<your_openai_api_key_here>
+    ```
 
 
 5. Run the development server:
-```bash
-node game.js
-```
+    ```bash
+    node game.js
+    ```
 
 ## Usage
 
