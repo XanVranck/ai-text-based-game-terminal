@@ -7,6 +7,7 @@ Enjoy this AI text based game .
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Todo](#todo)
 
 ## Installation
 
@@ -70,3 +71,9 @@ Guidelines for contributing to this project.
     git push origin feature/your-feature-name
     ```
 6. Open a pull request.
+
+## Todo
+<ul>
+  <li>Implement better ending</li>
+  <li>Implement a frontend</li>
+</ul> 
