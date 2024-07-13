@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import callOpenAI from './openai.js';
-
+import { Spinner } from "@topcli/spinner";
 
 let chosenScenarios = [];
 const scenarios = [
@@ -9,11 +9,11 @@ const scenarios = [
         name: 'intro',
         message: 'You wake up in a mysterious room. What do you do?',
         choices: [
-            { name: 'Look around', nextScenario: 'lookAround' },
-            { name: 'Open the door', nextScenario: 'openDoor' }
-        ]
+            { name: 'Look around'},
+            { name: 'Open the door'}
+        ],
+        continue: true
     },
-    // ... (more scenarios)
     // Scenario 7: Conclusion
     {
         name: 'ending',
@@ -30,14 +30,8 @@ const presentScenario = async (scenario) => {
             name: 'choice',
             message: scenario.message,
             choices: scenario.choices.map(choice => choice.name),
-            filter: async answer => {
-              await new Promise(r => setTimeout(r, 3000));
-              return `filtered${answer}`;
-            },
-            filteringText: 'Generating...'
         }
     ]);
-
     return answers.choice;
 };
 
@@ -45,17 +39,17 @@ const presentScenario = async (scenario) => {
 const startGame = async () => {
     // Start with the 'intro' scenario
     let currentScenario = scenarios.find(scenario => scenario.name === 'intro');
-    
+    let count = 0;
 
     // Continue looping through scenarios as long as there's a current scenario
-    while (currentScenario) {
+    while (currentScenario.continue) {
         // Present the current scenario to the player and get their choice
-
+        count++;
         const playerChoice = await presentScenario(currentScenario);
         chosenScenarios.push(currentScenario.message)
-        currentScenario = await callOpenAI(chosenScenarios, playerChoice)
-        console.log('------------------------')
-        // Find the next scenario based on the player's choice and update the current scenario
+        const spinner = new Spinner().start("Generating");
+        currentScenario = await callOpenAI(chosenScenarios, playerChoice, count)
+        spinner.succeed("");
     }
 
     // Print a thank-you message when the game ends
