@@ -1,4 +1,4 @@
-# Node AI text-based game
+# AI text-based game
 
 Enjoy this AI text based game .
 
@@ -15,7 +15,7 @@ Step-by-step instructions on how to get the development environment running.
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/XanVranck/node-ai-text-based-game.git
+    git clone https://github.com/XanVranck/ai-text-based-game-terminal.git
     ```
 
 2. Navigate to the project directory:
@@ -75,5 +75,4 @@ Guidelines for contributing to this project.
 ## Todo
 <ul>
   <li>Implement better ending</li>
-  <li>Implement a frontend</li>
 </ul> 
